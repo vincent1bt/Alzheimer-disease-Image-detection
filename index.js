@@ -6,7 +6,11 @@ function imageUploaded(event) {
 
     if (!file) return;
 
-    const imageContainer = document.querySelector("#imageContainer");
+    firstClass.innerHTML = "";
+    secondClass.innerHTML = "";
+    loadingGif.style.display = "block";
+    imageContainer.src = "";
+
     const imageUrl = window.webkitURL.createObjectURL(file);
     imageContainer.src = imageUrl;
 
@@ -30,24 +34,31 @@ async function makePrediction(img) {
         .expandDims();
          
     const predictions = await model.predict(tensorImage).data();
-
-    const firstClass = document.querySelector("#firstClass");
-    const secondClass = document.querySelector("#secondClass");
-
     const ad_percentage = (predictions[0] * 100).toFixed(4);
     const cn_percentage = (predictions[1] * 100).toFixed(4);
 
+    loadingGif.style.display = "none";
     firstClass.innerHTML = `Alzheimer's disease: ${ad_percentage}`;
     secondClass.innerHTML = `Cognitively Normal: ${cn_percentage}`;
 }
 
 function ready() {
+    firstClass = document.querySelector("#firstClass");
+    secondClass = document.querySelector("#secondClass");
+    imageContainer = document.querySelector("#imageContainer");
+    loadingGif = document.querySelector("#loadingGif");
+
     const inputFile = document.querySelector("#image");
     inputFile.addEventListener('change', imageUploaded);
 }
 
 document.addEventListener("DOMContentLoaded", ready);
+
 let model;
+let firstClass;
+let secondClass;
+let imageContainer;
+let loadingGif;
 
 (async function() {
     model = await tf.loadLayersModel('/projects/alzheimer/model/model.json');

@@ -14,5 +14,5 @@ python -m http.server 8000
 And change the route of the model:
 
 ```
-tf.loadLayersModel('http://0.0.0.0:8000/assets/model/model.json');
+tf.loadLayersModel('/assets/model/model.json');
 ```
