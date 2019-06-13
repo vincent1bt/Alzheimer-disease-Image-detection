@@ -3,7 +3,7 @@
 This app uses TensorflowJS.
 
 You can see this app running [here](https://vincentblog.xyz/portfolio/alzheimer)
-and a blog post about the app in spanish [here](https://vincentblog.xyz/posts/detectando-alzheimer-con-deep-learning).
+and a blog post about the app [here](https://vincentblog.xyz/posts/detecting-alzheimer-s-desease-with-deep-learning).
 
 If you want to run this app you need a simple server:
 
