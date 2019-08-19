@@ -11,8 +11,14 @@ If you want to run this app you need a simple server:
 python -m http.server 8000
 ```
 
-And change the route of the model:
+First you have to change the route of the model:
 
 ```
 tf.loadLayersModel('/assets/model/model.json');
+```
+
+and run webpack:
+
+```
+npm run build
 ```

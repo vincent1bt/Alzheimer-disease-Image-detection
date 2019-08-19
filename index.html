@@ -29,12 +29,17 @@
                 get more information about the patient's brain condition.
             </p>
             <p>
-                The images that I used to train this model are from the <strong>ADNI</strong> dataset <strong>(Alzheimer’s Disease Neuroimaging Initiative) </strong>
+                The images used to train this model are from the <strong>ADNI</strong> dataset <strong>(Alzheimer’s Disease Neuroimaging Initiative) </strong>
                 <a target="_blank" href="http://adni.loni.usc.edu">adni.loni.usc.edu</a>. I converted the 3d images from the dataset to 2d jpg images.
             </p>
             <p>
-                This neuronal network uses <strong>TensorflowJS</strong>, therefore everything works in
-                the browser and the images are not send to a server. The model has a sensitivity of 98.9% and a specificity of 99%.
+                This model outputs the <strong>class activation maps</strong> as well. 
+                Due to these maps, we can see the most important parts of the brain that helped
+                the model to classify the image as cognitive normal or dementia (Alzheimer's disease).
+            </p>
+            <p>
+                This neuronal network uses <strong>TensorflowJS</strong>. Therefore everything works in
+                the browser and the images are not send to a server. The model has a sensitivity of 99% and a specificity of 99%.
                 
                 The code of this project is available <a target="_blank" href="https://nbviewer.jupyter.org/github/vincent1bt/Healthy-notebooks/blob/master/AD.ipynb">as a Jupyter notebook.</a>
             </p>
@@ -42,6 +47,8 @@
                 You can use a 2d brain image to test the neuronal network: 
             </p>
             <input type="file" id="image" accept="image/*">
+            <p>or run the example: </p>
+            <input type="button" id="example_button" value="See example">
         </div>
         <div class="image_content">
             <img src="" alt="" id="imageContainer" />
@@ -50,11 +57,13 @@
             <img src="/assets/loading.gif" alt="" id="loadingGif">
 
             <p id="firstClass">
-                
             </p>
             <p id="secondClass">
-                
             </p>
+        </div>
+        <div class="canvas_content">
+            <canvas height="200", width="200" id="activation_canvas">
+            </canvas>
         </div>
     </section>
 
