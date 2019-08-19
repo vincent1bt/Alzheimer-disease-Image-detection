@@ -198,7 +198,7 @@ function ready() {
 
 function runExample() {
     loadingGif.style.display = "block";
-    const url = "./assets/img.jpg";
+    const url = "/projects/alzheimer/img.jpg";
     let img = new Image(200, 200);
     img.src = url;
 

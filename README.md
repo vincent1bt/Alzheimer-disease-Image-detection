@@ -17,7 +17,13 @@ First you have to change the route of the model:
 tf.loadLayersModel('/assets/model/model.json');
 ```
 
-and run webpack:
+and the route of the sample image:
+
+```
+const url = "./assets/img.jpg";
+```
+
+Finally run webpack:
 
 ```
 npm run build
